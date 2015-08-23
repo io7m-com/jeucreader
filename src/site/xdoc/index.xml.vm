@@ -13,6 +13,12 @@
       <p>The <var>jeucreader</var> package implements a simplified
       interface for reading a stream of Unicode codepoints.</p>
     </subsection>
+    <subsection name="Features">
+      <ul>
+        <li>Full unit test coverage.</li>
+        <li>ISC license.</li>
+      </ul>
+    </subsection>
   </body>
 
 </document>
