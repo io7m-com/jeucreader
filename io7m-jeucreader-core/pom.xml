@@ -52,7 +52,7 @@
         <configuration>
           <instructions>
             <Export-Package>
-              com.io7m.jeucreader.core
+              com.io7m.jeucreader
             </Export-Package>
           </instructions>
         </configuration>

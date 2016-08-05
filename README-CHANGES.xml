@@ -4,6 +4,16 @@
 
   <c:release c:ticket-system="com.github.io7m.jeucreader">
     <c:date>2016-08-05</c:date>
+    <c:version>1.1.1</c:version>
+    <c:item>
+      <c:date>2016-08-05</c:date>
+      <c:type-code-fix/>
+      <c:summary>Correct OSGi exports.</c:summary>
+    </c:item>
+  </c:release>
+
+  <c:release c:ticket-system="com.github.io7m.jeucreader">
+    <c:date>2016-08-05</c:date>
     <c:version>1.1.0</c:version>
     <c:item>
       <c:date>2016-08-05</c:date>
