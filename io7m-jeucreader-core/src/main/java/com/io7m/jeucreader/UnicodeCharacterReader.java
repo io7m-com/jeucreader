@@ -43,7 +43,7 @@ public final class UnicodeCharacterReader implements
     final Reader r)
   {
     this.reader = NullCheck.notNull(r);
-    this.pushed = new ArrayDeque<>(3);
+    this.pushed = new ArrayDeque<Integer>(3);
   }
 
   /**
