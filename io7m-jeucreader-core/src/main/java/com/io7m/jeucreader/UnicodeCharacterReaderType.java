@@ -25,20 +25,22 @@ import java.io.IOException;
 public interface UnicodeCharacterReaderType
 {
   /**
-   * @return A single unicode code point, or <code>-1</code> at end-of-stream.
-   * @throws IOException
-   *           On I/O errors
-   * @throws InvalidSurrogatePair
-   *           If the character received after a high surrogate was not a low
-   *           surrogate.
-   * @throws MissingLowSurrogate
-   *           If an end-of-stream was encountered before the low surrogate of
-   *           a surrogate pair was received.
-   * @throws OrphanLowSurrogate
-   *           If a low surrogate was received outside of a high/low surrogate
-   *           pair.
+   * @return A single unicode code point, or {@code -1} at end-of-stream.
+   *
+   * @throws IOException          On I/O errors
+   * @throws InvalidSurrogatePair If the character received after a high
+   *                              surrogate was not a low surrogate.
+   * @throws MissingLowSurrogate  If an end-of-stream was encountered before the
+   *                              low surrogate of a surrogate pair was
+   *                              received.
+   * @throws OrphanLowSurrogate   If a low surrogate was received outside of a
+   *                              high/low surrogate pair.
    */
 
   int readCodePoint()
-    throws IOException;
+    throws
+    IOException,
+    InvalidSurrogatePair,
+    MissingLowSurrogate,
+    OrphanLowSurrogate;
 }

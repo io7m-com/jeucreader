@@ -14,6 +14,17 @@
  * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-@com.io7m.jnull.NonNullByDefault
-package com.io7m.jeucreader;
+package com.io7m.jeucreader.checkstyle;
+
+/**
+ * Marker class for looking up files by resource.
+ */
+
+public final class Checkstyle
+{
+  private Checkstyle()
+  {
+    throw new AssertionError("Unreachable code");
+  }
+}
 

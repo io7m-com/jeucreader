@@ -19,13 +19,19 @@ package com.io7m.jeucreader;
 import java.io.IOException;
 
 /**
- * An exception indicating that an end-of-stream was encountered before the
- * low surrogate of a surrogate pair was received.
+ * An exception indicating that an end-of-stream was encountered before the low
+ * surrogate of a surrogate pair was received.
  */
 
 public final class MissingLowSurrogate extends IOException
 {
   private static final long serialVersionUID = -546790757658151513L;
+
+  /**
+   * Construct an exception.
+   *
+   * @param message The message
+   */
 
   public MissingLowSurrogate(
     final String message)

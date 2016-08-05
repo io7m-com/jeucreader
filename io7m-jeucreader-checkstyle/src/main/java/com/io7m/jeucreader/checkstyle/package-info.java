@@ -14,6 +14,9 @@
  * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-@com.io7m.jnull.NonNullByDefault
-package com.io7m.jeucreader;
+/**
+ * Checkstyle policy.
+ */
+
+@com.io7m.jnull.NonNullByDefault package com.io7m.jeucreader.checkstyle;
 

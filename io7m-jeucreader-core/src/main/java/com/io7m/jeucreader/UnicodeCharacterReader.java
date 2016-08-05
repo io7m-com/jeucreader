@@ -16,12 +16,12 @@
 
 package com.io7m.jeucreader;
 
+import com.io7m.jnull.NullCheck;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayDeque;
 import java.util.Deque;
-
-import com.io7m.jnull.NullCheck;
 
 /**
  * The default implementation of {@link UnicodeCharacterReaderType}.
@@ -30,11 +30,27 @@ import com.io7m.jnull.NullCheck;
 public final class UnicodeCharacterReader implements
   UnicodeCharacterReaderPushBackType
 {
+  private final Deque<Integer> pushed;
+  private final Reader reader;
+
+  /**
+   * Construct a new codepoint reader.
+   *
+   * @param r An existing reader
+   */
+
+  public UnicodeCharacterReader(
+    final Reader r)
+  {
+    this.reader = NullCheck.notNull(r);
+    this.pushed = new ArrayDeque<Integer>(3);
+  }
+
   /**
    * Construct a new character reader from the given reader.
    *
-   * @param r
-   *          The original reader
+   * @param r The original reader
+   *
    * @return A new reader
    */
 
@@ -44,23 +60,15 @@ public final class UnicodeCharacterReader implements
     return new UnicodeCharacterReader(r);
   }
 
-  private final Deque<Integer> pushed;
-  private final Reader         reader;
-
-  public UnicodeCharacterReader(
-    final Reader r)
-  {
-    this.reader = NullCheck.notNull(r);
-    this.pushed = new ArrayDeque<Integer>();
-  }
-
-  @Override public void pushCodePoint(
+  @Override
+  public void pushCodePoint(
     final int c)
   {
     this.pushed.push(Integer.valueOf(c));
   }
 
-  @Override public int readCodePoint()
+  @Override
+  public int readCodePoint()
     throws IOException
   {
     if (this.pushed.size() > 0) {
