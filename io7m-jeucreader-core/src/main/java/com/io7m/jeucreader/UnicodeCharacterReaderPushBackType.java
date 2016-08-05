@@ -27,8 +27,7 @@ public interface UnicodeCharacterReaderPushBackType extends
   /**
    * Push the character <code>c</code> to the stream.
    *
-   * @param c
-   *          The character to be pushed
+   * @param c The character to be pushed
    */
 
   void pushCodePoint(

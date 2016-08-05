@@ -5,7 +5,7 @@
   xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
   <properties>
-    <title>io7m-jeucreader</title>
+    <title>jeucreader</title>
   </properties>
 
   <body>
@@ -16,6 +16,7 @@
     <subsection name="Features">
       <ul>
         <li>Full unit test coverage.</li>
+        <li><a href="https://www.osgi.org/">OSGi</a>-ready.</li>
         <li>ISC license.</li>
       </ul>
     </subsection>
