@@ -23,8 +23,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <siteReposDirectory>/com/io7m/jeucreader</siteReposDirectory>
-    <siteDocumentationDirectory>/com/io7m/jeucreader/io7m-jeucreader-documentation</siteDocumentationDirectory>
+    <siteReposDirectory>com/io7m/jeucreader</siteReposDirectory>
+    <siteDocumentationDirectory>com/io7m/jeucreader/io7m-jeucreader-documentation</siteDocumentationDirectory>
   </properties>
 
   <licenses>
@@ -379,7 +379,6 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
-            <Export-Package>com.io7m.jproperties</Export-Package>
             <Specification-Title>${project.name}</Specification-Title>
             <Specification-Version>${project.version}</Specification-Version>
             <Specification-Vendor>io7m.com</Specification-Vendor>
