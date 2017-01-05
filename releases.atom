@@ -11,11 +11,18 @@
     <a:id>0</a:id>
     <a:updated>2016-08-05T00:00:00Z</a:updated>
     <a:published>2016-08-05T00:00:00Z</a:published>
+    <a:title>io7m-jeucreader 1.1.1 released</a:title>
+    <a:content type="text"> io7m-jeucreader 1.1.1 released </a:content>
+  </a:entry>
+  <a:entry>
+    <a:id>1</a:id>
+    <a:updated>2016-08-05T00:00:00Z</a:updated>
+    <a:published>2016-08-05T00:00:00Z</a:published>
     <a:title>io7m-jeucreader 1.1.0 released</a:title>
     <a:content type="text"> io7m-jeucreader 1.1.0 released </a:content>
   </a:entry>
   <a:entry>
-    <a:id>1</a:id>
+    <a:id>2</a:id>
     <a:updated>2015-08-23T00:00:00Z</a:updated>
     <a:published>2015-08-23T00:00:00Z</a:published>
     <a:title>io7m-jeucreader 1.0.0 released</a:title>
