@@ -13,7 +13,7 @@
 
   <groupId>com.io7m.jeucreader</groupId>
   <artifactId>com.io7m.jeucreader</artifactId>
-  <version>1.1.2-SNAPSHOT</version>
+  <version>1.1.2</version>
 
   <packaging>pom</packaging>
   <name>com.io7m.jeucreader</name>
@@ -32,6 +32,7 @@
     <io7m.checkstyle.artifact>com.io7m.jeucreader.checkstyle</io7m.checkstyle.artifact>
     <io7m.checkstyle.path>/com/io7m/jeucreader/checkstyle/checkstyle.xml</io7m.checkstyle.path>
     <io7m.api.previousVersion>1.1.1</io7m.api.previousVersion>
+    <io7m.javadoc.docLint/>
   </properties>
 
   <licenses>
