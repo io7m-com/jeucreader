@@ -1,3 +1,0 @@
-Comparing source compatibility of /home/someone/git/com.github/io7m/jeucreader/com.io7m.jeucreader.core/target/com.io7m.jeucreader.core-1.1.2.jar against /home/someone/.m2/repository/com/io7m/jeucreader/io7m-jeucreader-core/1.1.1/io7m-jeucreader-core-1.1.1.jar
-WARNING: You are using the option '--ignore-missing-classes', i.e. superclasses and interfaces that could not be found on the classpath are ignored. Hence changes caused by these superclasses and interfaces are not reflected in the output.
-No changes.
