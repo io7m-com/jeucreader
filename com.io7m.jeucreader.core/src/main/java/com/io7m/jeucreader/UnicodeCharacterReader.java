@@ -16,7 +16,7 @@
 
 package com.io7m.jeucreader;
 
-import com.io7m.jnull.NullCheck;
+import java.util.Objects;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -42,7 +42,7 @@ public final class UnicodeCharacterReader implements
   public UnicodeCharacterReader(
     final Reader r)
   {
-    this.reader = NullCheck.notNull(r);
+    this.reader = Objects.requireNonNull(r, "Reader");
     this.pushed = new ArrayDeque<Integer>(3);
   }
 
@@ -77,7 +77,7 @@ public final class UnicodeCharacterReader implements
 
     final int c0 = this.reader.read();
 
-    /**
+    /*
      * EOF?
      */
 
@@ -85,7 +85,7 @@ public final class UnicodeCharacterReader implements
       return -1;
     }
 
-    /**
+    /*
      * Low surrogate without corresponding high surrogate? Error!
      */
 
@@ -94,14 +94,14 @@ public final class UnicodeCharacterReader implements
         "Low surrogate received without high surrogate");
     }
 
-    /**
+    /*
      * High surrogate?
      */
 
     if (Character.isHighSurrogate((char) c0)) {
       final int c1 = this.reader.read();
 
-      /**
+      /*
        * EOF before high surrogate? Error!
        */
 
@@ -109,7 +109,7 @@ public final class UnicodeCharacterReader implements
         throw new MissingLowSurrogate("EOF reached before low surrogate");
       }
 
-      /**
+      /*
        * Low surrogate? Convert pair and return.
        */
 
