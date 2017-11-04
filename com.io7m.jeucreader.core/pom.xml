@@ -17,10 +17,6 @@
   <description>Easy unicode character reader (Core)</description>
   <url>http://io7m.github.io/jeucreader/</url>
 
-  <properties>
-    <io7m.api.previousArtifactId>io7m-jeucreader-core</io7m.api.previousArtifactId>
-  </properties>
-
   <scm>
     <url>${project.parent.scm.url}</url>
     <connection>${project.parent.scm.connection}</connection>
