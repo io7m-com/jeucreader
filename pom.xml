@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
   <parent>
@@ -15,7 +18,7 @@
   <packaging>pom</packaging>
   <name>com.io7m.jeucreader</name>
   <description>Easy unicode character reader</description>
-  <url>http://github.com/io7m/jeucreader</url>
+  <url>https://www.io7m.com/software/jeucreader</url>
 
   <modules>
     <module>com.io7m.jeucreader.core</module>
@@ -29,7 +32,7 @@
   <licenses>
     <license>
       <name>ISC License</name>
-      <url>http://io7m.com/license/isc.txt</url>
+      <url>https://io7m.com/license/isc.txt</url>
     </license>
   </licenses>
 
@@ -44,12 +47,12 @@
       <id>io7m</id>
       <name>io7m</name>
       <email>code@io7m.com</email>
-      <url>http://io7m.com</url>
+      <url>https://io7m.com</url>
     </developer>
   </developers>
 
   <issueManagement>
-    <url>http://github.com/io7m/jeucreader/issues</url>
+    <url>https://github.com/io7m/jeucreader/issues</url>
     <system>GitHub Issues</system>
   </issueManagement>
 
@@ -77,6 +80,16 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.annotation.bundle</artifactId>
+        <version>2.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.annotation.versioning</artifactId>
+        <version>1.1.2</version>
+      </dependency>
+      <dependency>
         <groupId>com.io7m.primogenitor</groupId>
         <artifactId>com.io7m.primogenitor.support</artifactId>
         <version>7.0.0</version>
@@ -92,17 +105,6 @@
   <build>
     <pluginManagement>
       <plugins>
-        <!-- Require JDK >= 11 -->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <configuration>
-            <source>11</source>
-            <target>11</target>
-            <release>11</release>
-          </configuration>
-        </plugin>
-
         <!-- jstructural plugin for generating documentation. -->
         <plugin>
           <groupId>com.io7m.jstructural</groupId>
