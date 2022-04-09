@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project
-  xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.io7m.jeucreader</groupId>
     <artifactId>com.io7m.jeucreader</artifactId>
-    <version>2.0.0</version>
+    <version>3.0.0</version>
   </parent>
   <artifactId>com.io7m.jeucreader.documentation</artifactId>
 
@@ -21,11 +20,29 @@
     <mdep.analyze.skip>true</mdep.analyze.skip>
   </properties>
 
-  <scm>
-    <url>${project.parent.scm.url}</url>
-    <connection>${project.parent.scm.connection}</connection>
-    <developerConnection>${project.parent.scm.developerConnection}</developerConnection>
-  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>com.io7m.jeucreader.core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>org.osgi.annotation.bundle</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>org.osgi.annotation.versioning</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.io7m.primogenitor</groupId>
+      <artifactId>com.io7m.primogenitor.support</artifactId>
+    </dependency>
+  </dependencies>
 
   <build>
     <plugins>
@@ -48,6 +65,38 @@
                   <filtering>true</filtering>
                 </resource>
               </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Unpack sources of dependencies -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>unpack-sources</id>
+            <phase>package</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <excludes>module-info.java</excludes>
+              <includeGroupIds>${project.groupId}</includeGroupIds>
+              <classifier>sources</classifier>
+              <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
+              <outputDirectory>${project.build.directory}/javadoc-sources</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>make-classpath</id>
+            <phase>package</phase>
+            <goals>
+              <goal>build-classpath</goal>
+            </goals>
+            <configuration>
+              <outputFile>${project.build.directory}/javadoc-classpath</outputFile>
             </configuration>
           </execution>
         </executions>
@@ -89,47 +138,24 @@
 
       <!-- Javadoc handling -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
         <executions>
-          <!-- Produce javadoc jar for Central -->
           <execution>
-            <id>attach-javadocs</id>
-            <phase>package</phase>
+            <id>javadoc</id>
             <goals>
-              <goal>jar</goal>
+              <goal>java</goal>
             </goals>
-            <configuration>
-              <bottom><![CDATA[Copyright &#169; {currentYear} &lt;code@io7m.com&gt; http://io7m.com]]></bottom>
-              <archive>
-                <manifestEntries>
-                  <Specification-Title>${project.name}</Specification-Title>
-                  <Specification-Version>${project.version}</Specification-Version>
-                  <Specification-Vendor>io7m.com</Specification-Vendor>
-                  <Implementation-Title>${project.name}</Implementation-Title>
-                  <Implementation-Version>${project.version}</Implementation-Version>
-                  <Implementation-Vendor>io7m.com</Implementation-Vendor>
-                  <Implementation-Vendor-Id>${project.groupId}</Implementation-Vendor-Id>
-                  <Built-By>io7m</Built-By>
-                </manifestEntries>
-              </archive>
-            </configuration>
-          </execution>
-          <!-- Produce aggregate dependency javadocs -->
-          <execution>
-            <id>javadoc-aggregate</id>
             <phase>package</phase>
-            <goals>
-              <goal>javadoc-no-fork</goal>
-            </goals>
             <configuration>
-              <bottom><![CDATA[Copyright &#169; {currentYear} &lt;code@io7m.com&gt; http://io7m.com]]></bottom>
-              <outputDirectory>${project.build.directory}/apidocs</outputDirectory>
-              <includeDependencySources>true</includeDependencySources>
-              <includeTransitiveDependencySources>true</includeTransitiveDependencySources>
-              <dependencySourceIncludes>
-                <dependencySourceSet>com.io7m.jeucreader*</dependencySourceSet>
-              </dependencySourceIncludes>
+              <mainClass>com.io7m.primogenitor.support.TrivialJavadoc</mainClass>
+              <arguments>
+                <argument>${project.build.directory}/javadoc-sources</argument>
+                <argument>${project.build.directory}/javadoc-classpath</argument>
+                <argument>${project.build.directory}/documentation/apidocs</argument>
+                <argument>${project.build.directory}/javadoc-log.txt</argument>
+                <argument>${project.build.directory}/javadoc-options</argument>
+              </arguments>
             </configuration>
           </execution>
         </executions>
@@ -158,7 +184,7 @@
         </executions>
       </plugin>
 
-      <!-- Unpack the documentation archive to the parent's generated site staging directory. -->
+      <!-- Unpack the documentation archive to the parent's generated site minisite directory. -->
       <!-- This is arguably abusive, but there appears to be no other way to achieve it. -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -174,8 +200,10 @@
             <configuration>
               <verbose>true</verbose>
               <fileset>
-                <directory>${project.build.directory}/${project.name}-${project.version}.zip/${project.name}-${project.version}/</directory>
-                <outputDirectory>${project.parent.build.directory}/staging/documentation/</outputDirectory>
+                <directory>
+                  ${project.build.directory}/${project.name}-${project.version}.zip/${project.name}-${project.version}/
+                </directory>
+                <outputDirectory>${project.parent.build.directory}/minisite/documentation/</outputDirectory>
               </fileset>
             </configuration>
           </execution>

@@ -1,5 +1,5 @@
 /*
- * Copyright © 2017 <code@io7m.com> http://io7m.com
+ * Copyright © 2017 Mark Raynsford <code@io7m.com> https://io7m.com
  *
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -14,6 +14,10 @@
  * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-module com.io7m.jeucreader.core {
+module com.io7m.jeucreader.core
+{
+  requires static org.osgi.annotation.bundle;
+  requires static org.osgi.annotation.versioning;
+
   exports com.io7m.jeucreader;
 }
