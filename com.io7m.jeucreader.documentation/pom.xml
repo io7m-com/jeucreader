@@ -14,7 +14,7 @@
   <packaging>jar</packaging>
   <name>com.io7m.jeucreader.documentation</name>
   <description>Easy unicode character reader (Documentation)</description>
-  <url>http://io7m.github.io/jeucreader/</url>
+  <url>https://www.io7m.com/software/jeucreader</url>
 
   <properties>
     <mdep.analyze.skip>true</mdep.analyze.skip>
