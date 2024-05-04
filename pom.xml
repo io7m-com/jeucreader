@@ -22,7 +22,6 @@
 
   <modules>
     <module>com.io7m.jeucreader.core</module>
-    <module>com.io7m.jeucreader.documentation</module>
     <module>com.io7m.jeucreader.tests</module>
   </modules>
 
@@ -107,13 +106,6 @@
   <build>
     <pluginManagement>
       <plugins>
-        <!-- jstructural plugin for generating documentation. -->
-        <plugin>
-          <groupId>com.io7m.jstructural</groupId>
-          <artifactId>io7m-jstructural-maven-plugin</artifactId>
-          <version>5.0.0</version>
-        </plugin>
-
         <!-- Spot bugs -->
         <plugin>
           <groupId>com.github.spotbugs</groupId>
