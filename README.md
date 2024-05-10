@@ -4,7 +4,7 @@ jeucreader
 [![Maven Central](https://img.shields.io/maven-central/v/com.io7m.jeucreader/com.io7m.jeucreader.svg?style=flat-square)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.io7m.jeucreader%22)
 [![Maven Central (snapshot)](https://img.shields.io/nexus/s/com.io7m.jeucreader/com.io7m.jeucreader?server=https%3A%2F%2Fs01.oss.sonatype.org&style=flat-square)](https://s01.oss.sonatype.org/content/repositories/snapshots/com/io7m/jeucreader/)
 [![Codecov](https://img.shields.io/codecov/c/github/io7m-com/jeucreader.svg?style=flat-square)](https://codecov.io/gh/io7m-com/jeucreader)
-![Java Version](https://img.shields.io/badge/21-java?label=java&color=e6c35c)
+![Java Version](https://img.shields.io/badge/17-java?label=java&color=e65cc3)
 
 ![com.io7m.jeucreader](./src/site/resources/jeucreader.jpg?raw=true)
 
