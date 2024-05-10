@@ -8,7 +8,7 @@ one at a time.
 
 * Unicode codepoint reader interface.
 * High coverage test suite.
-* Written in pure Java 21 with no dependencies.
+* Written in pure Java 17 with no dependencies.
 * [OSGi-ready](https://www.osgi.org/)
 * [JPMS-ready](https://en.wikipedia.org/wiki/Java_Platform_Module_System)
 * ISC license.
